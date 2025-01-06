@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Task Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application to manage and track tasks efficiently. This project is set up with Vite for fast development, Docker for containerization, and a basic test suite using Jest and React Testing Library.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add, view, and delete tasks
+- Dockerized for seamless deployment
+- Includes unit tests for components
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js 
+- Docker (optional for containerization)
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/task-tracker-app.git
+cd task-tracker-app
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2. Install Dependencies
+```bash
+npm install
 ```
+
+### 3. Run the Application Locally
+```bash
+npm run dev
+```
+Navigate to `http://localhost:5173` to view the app.
+
+### 4. Run Tests
+```bash
+npm test
+```
+
+## Docker Setup
+
+### 1. Build the Docker Image
+```bash
+docker build -t task-tracker-app .
+```
+
+### 2. Run the Docker Container
+```bash
+docker run -p 3000:3000 task-tracker-app
+```
+
+Visit `http://localhost:3000` to access the application in a Docker container.
+
+## Project Structure
+```
+.
+├── src
+│   ├── components  // React components
+│   ├── tests       // Unit tests
+│   └── App.jsx     // Main app component
+├── public          // Static files
+├── Dockerfile      // Docker configuration
+├── vite.config.js  // Vite configuration
+├── package.json    // Project metadata and scripts
+└── README.md       // Documentation
+```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
