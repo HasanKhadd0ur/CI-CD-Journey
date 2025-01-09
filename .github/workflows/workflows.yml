@@ -59,7 +59,7 @@ jobs:
 
       # Upload build artifact (optional)
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@4
         with:
           name: dist
           path: dist/
