@@ -1,0 +1,47 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: vite-project-pipeline-task
+spec:
+  steps:
+    # Step 1: Install dependencies
+    - name: install-dependencies
+      image: node:18
+      script: |
+        #!/bin/sh
+        echo "Installing dependencies..."
+        npm install
+
+    # Step 2: Lint the project
+    - name: lint-code
+      image: node:18
+      script: |
+        #!/bin/sh
+        echo "Linting code..."
+        npm run lint
+
+    # Step 3: Run tests
+    - name: run-tests
+      image: node:18
+      script: |
+        #!/bin/sh
+        echo "Running tests..."
+        npm test
+
+    # Step 4: Build the project
+    - name: build-project
+      image: node:18
+      script: |
+        #!/bin/sh
+        echo "Building project..."
+        npm run build
+        echo "Build completed."
+
+    # Step 5: Deploy (example deployment step, modify as per your environment)
+    - name: deploy
+      image: node:18
+      script: |
+        #!/bin/sh
+        echo "Deploying the application..."
+        # no thing  here yet !
+        echo "Application deployed."
