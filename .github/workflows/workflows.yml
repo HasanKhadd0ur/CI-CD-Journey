@@ -57,9 +57,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Upload build artifact (optional)
-      - name: Upload artifact
-        uses: actions/upload-artifact@4
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.0
         with:
-          name: dist
+          # Artifact name
+          name: Dist
           path: dist/
+        
+          
+       
